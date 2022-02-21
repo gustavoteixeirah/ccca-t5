@@ -27,7 +27,8 @@ class Order {
             volumeTotal += orderItem.dimensions.getVolume();
             densidadeTotal += orderItem.dimensions.getDensidade();
         }
-        return distance * volumeTotal * (densidadeTotal / 100);
+        const frete = distance * volumeTotal * (densidadeTotal / 100);
+        return frete < 10 ? 10 : frete;
     }
     addItem(item, quantity) {
         this.orderItems.push(new OrderItem_1.default(item.idItem, item.price, quantity, item.dimensions));

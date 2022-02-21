@@ -31,7 +31,9 @@ export default class Order {
             volumeTotal += orderItem.dimensions.getVolume();
             densidadeTotal += orderItem.dimensions.getDensidade();
         }
-        return distance * volumeTotal * (densidadeTotal / 100);
+        const frete = distance * volumeTotal * (densidadeTotal / 100);
+
+        return frete < 10 ? 10 : frete;
     }
 
     addItem(item: Item, quantity: number) {
