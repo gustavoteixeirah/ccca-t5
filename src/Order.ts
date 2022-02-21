@@ -1,7 +1,7 @@
-import Coupon from './Coupon';
-import Cpf from './Cpf';
-import Item from './Item';
-import OrderItem from './OrderItem';
+import Coupon from "./Coupon";
+import Cpf from "./Cpf";
+import Item from "./Item";
+import OrderItem from "./OrderItem";
 
 export default class Order {
     cpf: Cpf;
@@ -24,8 +24,20 @@ export default class Order {
         return total;
     }
 
+    getFrete(distance: number) {
+        let volumeTotal = 0;
+        let densidadeTotal = 0;
+        for (const orderItem of this.orderItems) {
+            volumeTotal += orderItem.dimensions.getVolume();
+            densidadeTotal += orderItem.dimensions.getDensidade();
+        }
+        return distance * volumeTotal * (densidadeTotal / 100);
+    }
+
     addItem(item: Item, quantity: number) {
-        this.orderItems.push(new OrderItem(item.idItem, item.price, quantity));
+        this.orderItems.push(
+            new OrderItem(item.idItem, item.price, quantity, item.dimensions)
+        );
     }
 
     addCoupon(coupon: Coupon) {

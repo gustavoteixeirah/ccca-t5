@@ -20,8 +20,17 @@ class Order {
         }
         return total;
     }
+    getFrete(distance) {
+        let volumeTotal = 0;
+        let densidadeTotal = 0;
+        for (const orderItem of this.orderItems) {
+            volumeTotal += orderItem.dimensions.getVolume();
+            densidadeTotal += orderItem.dimensions.getDensidade();
+        }
+        return distance * volumeTotal * (densidadeTotal / 100);
+    }
     addItem(item, quantity) {
-        this.orderItems.push(new OrderItem_1.default(item.idItem, item.price, quantity));
+        this.orderItems.push(new OrderItem_1.default(item.idItem, item.price, quantity, item.dimensions));
     }
     addCoupon(coupon) {
         this.coupon = coupon;
