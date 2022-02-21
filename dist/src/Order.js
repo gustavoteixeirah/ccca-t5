@@ -20,14 +20,14 @@ class Order {
         }
         return total;
     }
-    getFrete(distance) {
+    getFrete() {
         let volumeTotal = 0;
         let densidadeTotal = 0;
         for (const orderItem of this.orderItems) {
             volumeTotal += orderItem.dimensions.getVolume();
             densidadeTotal += orderItem.dimensions.getDensidade();
         }
-        const frete = distance * volumeTotal * (densidadeTotal / 100);
+        const frete = 1000 * volumeTotal * (densidadeTotal / 100);
         return frete < 10 ? 10 : frete;
     }
     addItem(item, quantity) {

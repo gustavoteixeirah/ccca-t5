@@ -113,7 +113,7 @@ test("Deve calcular o valor do frete com base nas dimensões (altura, largura e 
         1
     );
 
-    const frete = order.getFrete(1000);
+    const frete = order.getFrete();
 
     expect(frete).toBe(30);
 });
@@ -131,7 +131,7 @@ test("Deve retornar o preço mínimo de frete caso ele seja superior ao valor ca
         1
     );
 
-    const frete = order.getFrete(1000);
+    const frete = order.getFrete();
 
     expect(frete).toBe(10);
 });

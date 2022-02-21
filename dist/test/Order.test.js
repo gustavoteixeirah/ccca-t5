@@ -39,12 +39,12 @@ test("Não deve aplicar cupom de desconto expirado", function () {
 test("Deve calcular o valor do frete com base nas dimensões (altura, largura e profundidade em cm) e o peso dos produtos (em kg)", function () {
     const order = new Order_1.default("935.411.347-80");
     order.addItem(new Item_1.default(1, "Instrumentos Musicais", "Guitarra", 1000, new Dimensions_1.default(100, 30, 10, 3)), 1);
-    const frete = order.getFrete(1000);
+    const frete = order.getFrete();
     expect(frete).toBe(30);
 });
 test("Deve retornar o preço mínimo de frete caso ele seja superior ao valor calculado", function () {
     const order = new Order_1.default("935.411.347-80");
     order.addItem(new Item_1.default(1, "Instrumentos Musicais", "Camera", 1000, new Dimensions_1.default(20, 15, 10, 1)), 1);
-    const frete = order.getFrete(1000);
+    const frete = order.getFrete();
     expect(frete).toBe(10);
 });
