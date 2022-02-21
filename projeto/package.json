@@ -4,11 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-      "test": "tsc && jest ./dist"
+    "test": "tsc && jest ./dist"
   },
   "dependencies": {
     "@types/jest": "^27.4.0",
     "jest": "^27.5.1",
+    "prettier": "^2.5.1",
     "typescript": "^4.5.5"
   }
 }
